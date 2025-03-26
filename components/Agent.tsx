@@ -10,7 +10,7 @@ enum CallStatus {
 }
 
 const Agent = ({ userName }: AgentProps) => {
-  const callStatus = CallStatus.INACTIVE;
+  const callStatus = CallStatus.ACTIVE;
   const isSpeaking = true;
   const messages = ["Test", "Test2"];
 
@@ -65,6 +65,7 @@ const Agent = ({ userName }: AgentProps) => {
             <span
               className={cn(
                 "absolute animate-ping rounded-full opacity-75",
+                //@ts-ignore
                 (callStatus !== "CONNECTING") & "hidden",
               )}
             />
