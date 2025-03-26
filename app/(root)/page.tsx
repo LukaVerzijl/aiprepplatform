@@ -31,7 +31,7 @@ const Page = () => {
         <h2>Your Interviews</h2>
         <div className={"interviews-section"}>
           {dummyInterviews.map((interview) => (
-            <InterviewCard {...interview} />
+            <InterviewCard {...interview} key={interview.id} />
           ))}
           {/*<p>You did not take any interviews yet</p>*/}
         </div>
