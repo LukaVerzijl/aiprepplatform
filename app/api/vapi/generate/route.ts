@@ -6,6 +6,7 @@ import { db } from "@/firebase/admin";
 export async function POST(request: Request) {
   const { type, role, level, techstack, amount, userid } = await request.json();
 
+  console.log(role,type,level,amount,userid)
   try {
     const { text: questions } = await generateText({
       model: google("gemini-2.0-flash-001"),
@@ -35,6 +36,7 @@ export async function POST(request: Request) {
       coverImage: getRandomInterviewCover(),
       createdAt: new Date().toISOString(),
     };
+
 
     await db.collection("interviews").add(interview);
     return Response.json({ sucess: true }, { status: 200 });
